@@ -3,7 +3,6 @@
 import 'package:ecomapp/provider/modelHud.dart';
 import 'package:ecomapp/screens/login_screen.dart';
 import 'package:ecomapp/screens/user/homePage.dart';
-import 'package:ecomapp/widgets/custom_textfield.dart';
 import 'package:ecomapp/widgets/cutsom_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,30 +31,30 @@ class SignupScreen extends StatelessWidget {
               SizedBox(
                 height: height * .1,
               ),
-              CustomTextField(
-                onClick: (value) {},
-                icon: Icons.perm_identity,
-                hint: 'Enter your name',
+              TextFormField(
+                onSaved: (value) {},
+                // icon: Icons.perm_identity,
+                // hint: 'Enter your name',
               ),
               SizedBox(
                 height: height * .02,
               ),
-              CustomTextField(
-                onClick: (value) {
+              TextFormField(
+                onSaved: (value) {
                   _email = value;
                 },
-                hint: 'Enter your email',
-                icon: Icons.email,
+                // hint: 'Enter your email',
+                // icon: Icons.email,
               ),
               SizedBox(
                 height: height * .02,
               ),
-              CustomTextField(
-                onClick: (value) {
+              TextFormField(
+                onSaved: (value) {
                   _password = value;
                 },
-                hint: 'Enter your password',
-                icon: Icons.lock,
+                // hint: 'Enter your password',
+                // icon: Icons.lock,
               ),
               SizedBox(
                 height: height * .05,

@@ -1,7 +1,6 @@
 import 'package:ecomapp/constants.dart';
 import 'package:ecomapp/models/product.dart';
 import 'package:ecomapp/services/store.dart';
-import 'package:ecomapp/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class EditProduct extends StatelessWidget {
@@ -23,52 +22,47 @@ class EditProduct extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                CustomTextField(
-                  hint: 'Product Name',
-                  onClick: (value) {
+                TextFormField(
+                  // hint: 'Product Name',
+                  onSaved: (value) {
                     _name = value;
                   },
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  onClick: (value) {
-                    _price = value;
-                  },
-                  hint: 'Product Price',
-                ),
+//,
                 SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  onClick: (value) {
+                TextFormField(
+                  onSaved: (value) {
                     _description = value;
                   },
-                  hint: 'Product Description',
+               //   hint: 'Product Description',
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  onClick: (value) {
+                TextFormField(
+                  onSaved: (value) {
                     _category = value;
                   },
-                  hint: 'Product Category',
+              //    hint: 'Product Category',
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                CustomTextField(
-                  onClick: (value) {
+                TextFormField(
+                  onSaved: (value) {
                     _imageLocation = value;
                   },
-                  hint: 'Product Location',
+                //  hint: 'Product Location',
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     if (_globalKey.currentState!.validate()) {
                       _globalKey.currentState!.save();
