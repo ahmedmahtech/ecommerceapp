@@ -10,17 +10,19 @@ import 'package:ecomapp/screens/admin/editProduct.dart';
 import 'package:ecomapp/screens/admin/manageProduct.dart';
 import 'package:ecomapp/screens/admin/order_details.dart';
 import 'package:ecomapp/screens/login_screen.dart';
-import 'package:ecomapp/screens/signup_screen.dart';
-import 'package:ecomapp/screens/user/CartScreen.dart';
-import 'package:ecomapp/screens/user/homePage.dart';
-import 'package:ecomapp/screens/user/productInfo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+      runApp(MyApp());
 
+
+}
 class MyApp extends StatelessWidget {
   bool isUserLoggedIn = false;
   @override
@@ -52,17 +54,14 @@ class MyApp extends StatelessWidget {
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              initialRoute: isUserLoggedIn ? HomePage.id : LoginScreen.id,
+              initialRoute: isUserLoggedIn ? AdminHome.id : LoginScreen.id,
               routes: {
                 OrderDetails.id: (context) => OrderDetails(),
                 OrdersScreen.id: (context) => OrdersScreen(),
-                CartScreen.id: (context) => CartScreen(),
-                ProductInfo.id: (context) => ProductInfo(),
+
                 EditProduct.id: (context) => EditProduct(),
                 ManageProducts.id: (context) => ManageProducts(),
                 LoginScreen.id: (context) => LoginScreen(),
-                SignupScreen.id: (context) => SignupScreen(),
-                HomePage.id: (context) => HomePage(),
                 AdminHome.id: (context) => AdminHome(),
                 AddProduct.id: (context) => AddProduct(),
               },

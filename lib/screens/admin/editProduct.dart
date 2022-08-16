@@ -22,43 +22,157 @@ class EditProduct extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextFormField(
-                  // hint: 'Product Name',
-                  onSaved: (value) {
-                    _name = value;
-                  },
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextFormField(
+                    cursorColor: kMainColor,
+                    decoration: InputDecoration(
+                      hintText: 'Enter product name',
+                      prefixIcon: Icon(
+                        Icons.sell,
+                        color: kMainColor,
+                      ),
+                      filled: true,
+                      fillColor: kSecondaryColor,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'enter product name';
+                        // ignore: missing_return
+                      }
+                    },
+                    onSaved: (value) {
+                      _name = value;
+                    },
+                    // hint: 'Enter your email',
+                    // icon: Icons.email,
+                  ),),
+
+
 //,
                 SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    _description = value;
-                  },
-               //   hint: 'Product Description',
-                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextFormField(
+                    cursorColor: kMainColor,
+                    decoration: InputDecoration(
+                      hintText: 'Enter product description',
+                      prefixIcon: Icon(
+                        Icons.description,
+                        color: kMainColor,
+                      ),
+                      filled: true,
+                      fillColor: kSecondaryColor,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'enter product description';
+                        // ignore: missing_return
+                      }
+                    },
+                    onSaved: (value) {
+                      _description = value;
+                    },
+                    // hint: 'Enter your email',
+                    // icon: Icons.email,
+                  ),),
+
                 SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    _category = value;
-                  },
-              //    hint: 'Product Category',
-                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextFormField(
+                    cursorColor: kMainColor,
+                    decoration: InputDecoration(
+                      hintText: 'Enter product category',
+                      prefixIcon: Icon(
+                        Icons.category,
+                        color: kMainColor,
+                      ),
+                      filled: true,
+                      fillColor: kSecondaryColor,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'enter product category';
+                        // ignore: missing_return
+                      }
+                    },
+                    onSaved: (value) {
+                      _category = value;
+                    },
+                    // hint: 'Enter your email',
+                    // icon: Icons.email,
+                  ),),
+
                 SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    _imageLocation = value;
-                  },
-                //  hint: 'Product Location',
-                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextFormField(
+                    cursorColor: kMainColor,
+                    decoration: InputDecoration(
+                      hintText: 'Enter product image url',
+                      prefixIcon: Icon(
+                        Icons.image,
+                        color: kMainColor,
+                      ),
+                      filled: true,
+                      fillColor: kSecondaryColor,
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'enter product image url';
+                        // ignore: missing_return
+                      }
+                    },
+                    onSaved: (value) {
+                      _imageLocation = value;
+                    },
+                    // hint: 'Enter your email',
+                    // icon: Icons.email,
+                  ),),
+
                 SizedBox(
                   height: 20,
                 ),

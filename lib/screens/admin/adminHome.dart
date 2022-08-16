@@ -17,19 +17,25 @@ class AdminHome extends StatelessWidget {
           SizedBox(
             width: double.infinity,
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, AddProduct.id);
             },
             child: Text('Add Product'),
           ),
-          RaisedButton(
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, ManageProducts.id);
+            },
+            child: Text('Manage Products'),
+          ),
+          ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, ManageProducts.id);
             },
             child: Text('Edit Product'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, OrdersScreen.id);
             },

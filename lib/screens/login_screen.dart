@@ -2,8 +2,6 @@
 
 import 'package:ecomapp/provider/adminMode.dart';
 import 'package:ecomapp/screens/admin/adminHome.dart';
-import 'package:ecomapp/screens/signup_screen.dart';
-import 'package:ecomapp/screens/user/homePage.dart';
 import 'package:ecomapp/widgets/cutsom_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomapp/constants.dart';
@@ -45,12 +43,76 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: height * .1,
               ),
-              TextFormField(
+    Padding(
+    padding: EdgeInsets.all(15),
+    child: TextFormField(
+                cursorColor: kMainColor,
+                decoration: InputDecoration(
+                  hintText: 'Enter your email',
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: kMainColor,
+                  ),
+                  filled: true,
+                  fillColor: kSecondaryColor,
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.white)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.white)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.white)),
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'enter your email';
+                    // ignore: missing_return
+                  }
+                },
                 onSaved: (value) {
                   _email = value;
                 },
                 // hint: 'Enter your email',
                 // icon: Icons.email,
+              ),),
+
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextFormField(
+                  obscureText: true,
+                  cursorColor: kMainColor,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your password',
+                    prefixIcon: Icon(
+                      Icons.password,
+                      color: kMainColor,
+                    ),
+                    filled: true,
+                    fillColor: kSecondaryColor,
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: Colors.white)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: Colors.white)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: Colors.white)),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'enter your password';
+                      // ignore: missing_return
+                    }
+                  },
+                  onSaved: (value) {
+                    password = value;
+                  },
+                  // hint: 'Enter your email',
+                  // icon: Icons.email,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 20),
@@ -75,13 +137,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-              ),
-              TextFormField(
-                onSaved: (value) {
-                  password = value;
-                },
-                // hint: 'Enter your password',
-                // icon: Icons.lock,
               ),
               SizedBox(
                 height: height * .05,
@@ -116,58 +171,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Don\'t have an account ? ',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, SignupScreen.id);
-                    },
-                    child: Text(
-                      'Signup',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  )
+
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Provider.of<AdminMode>(context, listen: false)
-                              .changeIsAdmin(true);
-                        },
-                        child: Text(
-                          'i\'m an admin',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Provider.of<AdminMode>(context).isAdmin
-                                  ? kMainColor
-                                  : Colors.white),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Provider.of<AdminMode>(context, listen: false)
-                              .changeIsAdmin(false);
-                        },
-                        child: Text(
-                          'i\'m a user',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color:
-                                  Provider.of<AdminMode>(context, listen: true)
-                                          .isAdmin
-                                      ? Colors.white
-                                      : kMainColor),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
             ],
           ),
         ),
@@ -198,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
       } else {
         try {
           await _auth.signIn(_email!.trim(), password!.trim());
-          Navigator.pushNamed(context, HomePage.id);
+          Navigator.pushNamed(context, AdminHome.id);
         } catch (e) {
 
         }
